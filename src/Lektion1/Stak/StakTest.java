@@ -19,6 +19,7 @@ class StakTest {
     void push() {
         a.push("YEAH!");
         a.show();
+        assert a.pop().equals("YEAH!");
     }
 
     @org.junit.jupiter.api.Test
