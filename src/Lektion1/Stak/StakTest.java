@@ -23,6 +23,11 @@ class StakTest {
 
     @org.junit.jupiter.api.Test
     void pop() {
+        for(int i = 0; i < 1000; i++)
+            a.push(""+i);
+
+        for(int i = 0; i < 1000; i++)
+            System.out.println(a.pop());
         System.out.println(a.pop());
         a.show();
     }

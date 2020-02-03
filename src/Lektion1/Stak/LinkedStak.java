@@ -28,9 +28,13 @@ public class LinkedStak implements Stak {
     }
 
     public String pop() {
-        String result = end.data;
+        String result = end != null ? end.data : "";
         if(end != null) {
-            end.previous.next = null;
+            if(end.previous == null) {
+                begin = null;
+            } else {
+                end.previous.next = null;
+            }
             end = end.previous;
         }
         return result;
