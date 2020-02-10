@@ -12,15 +12,19 @@ public class TUI implements IUI {
 
     public void showMenu(){
         Scanner keyboard = new Scanner(System.in);
+        System.out.println();
         System.out.println("== MENU ==");
         System.out.println("1. Show all ingredients");
         System.out.println("2. Show one ingredient");
         System.out.println("3. Change ingredient");
         System.out.println("4. Create new ingredient");
         System.out.println("5. Exit");
+        System.out.println();
 
-        System.out.print("Make your choice: ");
+        System.out.print("Make your choice (1-5): ");
         int choice = safeInt();
+        System.out.println();
+
         switch (choice) {
             case 1:
                 showIngredients();
@@ -48,6 +52,7 @@ public class TUI implements IUI {
         System.out.println("List of all ingredients:");
         for(int i = 0; i < allIngredients.length; i++)
             System.out.println(allIngredients[i]);
+        waitForEnter();
     }; //viser alle ingredienser
 
     public void showIngredient(){
@@ -60,12 +65,13 @@ public class TUI implements IUI {
             System.out.println("Ingredient " + id + " is: " + ingredientName);
             System.out.println("Amount: " + amount);
         }
+        waitForEnter();
     }; //lader brugeren vælge ingrediens ud fra id og viser denne
 
     public void changeIngredient(){
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter number of the ingredient: ");
-        int id = keyboard.nextInt();
+        int id = safeInt();
         boolean done = false;
         while(!done) {
             System.out.print("Which property do you want to change? Choose (N)ame or (A)mount: ");
@@ -84,6 +90,7 @@ public class TUI implements IUI {
                 done = true;
             } else System.out.println("Please re-enter your choice");
         }
+        //waitForEnter();
     }; //lader brugeren vælge ingrediens ud fra id, dernæst vælge et felt og så indtaste en ny værdi for denne
 
     public void createIngredient(){
@@ -92,33 +99,38 @@ public class TUI implements IUI {
         int id = -1;
         while(!done) {
             System.out.print("Enter ingredient id: ");
-            id = keyboard.nextInt();
+            id = safeInt();
             if (data.getIngredientName(id) != null)
                 System.out.println("Id already exists");
             else done = true;
         }
         if(id == -1) return;
         System.out.print("Enter new name: ");
-        String name = keyboard.next();
+        String name = keyboard.nextLine();
         System.out.print("Enter new amount: ");
         int amount = safeInt();
         data.createIngredient(id, name, amount);
         System.out.println("Ingredient created");
+        waitForEnter();
     }; //lader brugeren indtaste værdier til en ny ingrediens
 
-    private int safeInt() {
+    public int safeInt() {
         boolean done = false;
         int result = 0;
         while(!done){
-            String next = keyboard.next();
+            done = true;
+            String next = keyboard.nextLine();
             try {
                 result = Integer.parseInt(next);
             } catch (Exception e) {
                 System.out.println("Not an integer. Try again.");
-            } finally {
-                done = true;
+                done = false;
             }
         }
         return result;
+    }
+
+    private void waitForEnter(){
+        keyboard.nextLine();
     }
 }
