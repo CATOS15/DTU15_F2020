@@ -75,8 +75,8 @@ public class TUI implements IUI {
     public void changeIngredient(){
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter number of the ingredient: ");
+        int id = safeInt();
         try {
-            int id = safeInt();
             //to activate exception here:
             data.getIngredientName(id);
             boolean done = false;
