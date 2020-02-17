@@ -1,4 +1,4 @@
-package Lektion3;
+package Lektion2.Ingredienser;
 
 public interface IUI {
     void showMenu(); //viser menu med valgmuligheder

@@ -1,4 +1,4 @@
-package Lektion3;
+package Lektion3.Ingredienser;
 
 public interface IData {
     String[] getAllIngredients(); //returnerer alle ingredienser i en String-array

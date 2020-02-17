@@ -1,4 +1,4 @@
-package Lektion3;
+package Lektion2.Ingredienser;
 
 public class Main {
     public static void main(String[] args) {

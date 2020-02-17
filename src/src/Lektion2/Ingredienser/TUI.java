@@ -1,4 +1,4 @@
-package Lektion2;
+package Lektion2.Ingredienser;
 
 import java.util.Scanner;
 

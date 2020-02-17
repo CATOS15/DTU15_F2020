@@ -1,4 +1,4 @@
-package Lektion2;
+package Lektion3.Ingredienser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,35 +39,37 @@ public class DemoData implements IData {
         }
         return result;
     } //returnerer alle ingredienser i en String-array
-    public String getIngredientName(int id) {
+    public String getIngredientName(int id) throws IngredientNotFoundException {
         for (Ingredient ingredient:
              ingredients) {
             if(ingredient.id == id)
                 return ingredient.name;
         }
-        return null;
+        throw new IngredientNotFoundException();
     }; //returnerer navn for ingrediens
-    public int getIngredientAmount(int id){
+    public int getIngredientAmount(int id) throws IngredientNotFoundException {
         for (Ingredient ingredient:
                 ingredients) {
             if(ingredient.id == id)
                 return ingredient.amount;
         }
-        return -1;
+        throw new IngredientNotFoundException();
     }; //returnerer mængde for ingrediens
-    public void setIngredientName(int id, String name){
+    public void setIngredientName(int id, String name) throws IngredientNotFoundException {
         for (Ingredient ingredient:
                 ingredients) {
             if(ingredient.id == id)
                 ingredient.name = name;
         }
+        throw new IngredientNotFoundException();
     }; //ændrer navn for ingrediens til angivet værdi i 'name'
-    public void setIngredientAmount(int id, int amount){
+    public void setIngredientAmount(int id, int amount) throws IngredientNotFoundException {
         for (Ingredient ingredient:
                 ingredients) {
             if(ingredient.id == id)
                 ingredient.amount = amount;
         }
+        throw new IngredientNotFoundException();
     }; //ændrer mængde for ingrediens til angivet værdi i 'amount'
     public void createIngredient(int id, String name, int amount){
         Ingredient ingredient = new Ingredient(id, name, amount);
