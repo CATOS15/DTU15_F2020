@@ -1,4 +1,4 @@
-package lektion4.Stak;
+package Lektion4.Stak;
 
 public class LinkedStak<T> implements Stak<T> {
     private class Element<T> {

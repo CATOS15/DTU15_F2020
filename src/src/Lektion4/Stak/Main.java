@@ -1,4 +1,4 @@
-package lektion4.Stak;
+package Lektion4.Stak;
 
 public class Main {
     public static void main(String[] args) {

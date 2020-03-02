@@ -1,4 +1,4 @@
-package lektion4.Stak;
+package Lektion4.Stak;
 
 public class ArrayStak<T> implements Stak<T> {
     private T[] s;

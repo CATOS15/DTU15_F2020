@@ -1,4 +1,4 @@
-package lektion4.Stak;
+package Lektion4.Stak;
 
 interface Stak<T> {
     void push(T e);

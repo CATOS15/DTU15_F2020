@@ -1,4 +1,4 @@
-package lektion4.Vector;
+package Lektion4.Vector;
 
 public class Vector implements IVector, Comparable<Vector> {
     private double x, y;

@@ -1,4 +1,4 @@
-package lektion4.Vector;
+package Lektion4.Vector;
 
 public interface IVector {
     String toString();
