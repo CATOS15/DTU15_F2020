@@ -13,7 +13,7 @@ public class SerializeDemo {
             out.writeObject(c);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved to file");
+            System.out.printf("Serialized data is saved to file Users\\you\\complex.ser");
         } catch (IOException i) {
             i.printStackTrace();
         }
