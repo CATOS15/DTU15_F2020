@@ -1,3 +1,4 @@
+
 package Lektion6.Tennis;
 
 public class Main {
@@ -11,9 +12,13 @@ public class Main {
         wozniacki.start();
         williams.start();
 
-        Thread.sleep(100000);
+        Thread.sleep(10000);
 
+        wozniacki.stop();
+        williams.stop();
         wozniacki.join();
         williams.join();
+
+        System.out.println("Match is over.");
     }
 }
